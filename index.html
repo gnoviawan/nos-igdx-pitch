@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Night of Suro: Tulang Wangi — IGDX 2026</title>
+<link rel="preload" href="deck/1.jpg" as="image">
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+body{background:radial-gradient(ellipse at top,#2a0606 0%,#0b0000 55%,#000 100%) fixed;color:#e9d8a6;font-family:Georgia,"Times New Roman",serif;text-align:center;min-height:100vh}
+header{padding:28px 16px 10px}
+.studio{letter-spacing:.35em;text-transform:uppercase;font-size:.8rem;color:#b08d3c;margin-bottom:8px}
+h1{margin:0;font-size:clamp(2.2rem,8vw,4.2rem);color:#d4af37;text-shadow:0 0 24px rgba(160,0,0,.7);line-height:1.05}
+h2{margin:4px 0 14px;font-weight:normal;font-style:italic;color:#c23b22;font-size:clamp(1.2rem,4.5vw,1.8rem);letter-spacing:.08em}
+.tag{opacity:.9;font-size:clamp(1rem,3.4vw,1.15rem);margin:0 auto 22px;max-width:600px;line-height:1.5}
+nav{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:0 16px}
+nav button{flex:1 1 220px;max-width:340px;padding:22px 16px;font:bold clamp(1.2rem,4.5vw,1.6rem) Georgia,serif;color:#f5e6b8;background:linear-gradient(#3a0707,#1a0202);border:2px solid #7a5f22;border-radius:14px;cursor:pointer;letter-spacing:.05em}
+nav button.on{background:linear-gradient(#7a1010,#3b0505);border-color:#d4af37;box-shadow:0 0 18px rgba(180,0,0,.55)}
+section{display:none;max-width:1200px;margin:22px auto 0;padding:0 12px}
+section.on{display:block}
+.slide{display:block;width:100%;height:auto;margin:0 0 12px;border:1px solid #3a2a10;border-radius:6px;background:#111;aspect-ratio:16/9}
+video{width:100%;max-height:80vh;background:#000;border:1px solid #3a2a10;border-radius:6px}
+.soon{padding:60px 16px;border:1px dashed #7a5f22;border-radius:10px;color:#b08d3c}
+.small{display:inline-block;margin:10px 6px;padding:12px 22px;font-size:1rem;color:#d4af37;border:1px solid #b08d3c;border-radius:10px;text-decoration:none}
+.small:hover{background:#1a0000}
+footer{margin:30px 0 24px;font-size:.75rem;color:#7d6a3a}
+</style></head><body>
+<header>
+<div class="studio">Bunnydog Studio</div>
+<h1>Night of Suro</h1>
+<h2>Tulang Wangi</h2>
+<p class="tag">Malam 1 Suro. Desa terpencil di Jawa. Satu pantangan yang nggak boleh dilanggar.</p>
+<nav>
+<button id="b-deck" class="on" onclick="show('deck')">Pitch Deck</button>
+<button id="b-teaser" onclick="show('teaser')">Trailer / Teaser</button>
+</nav>
+</header>
+<section id="deck" class="on">
+<img class="slide" src="deck/1.jpg" alt="Slide 1">
+<img class="slide" src="deck/2.jpg" alt="Slide 2" loading="lazy">
+<img class="slide" src="deck/3.jpg" alt="Slide 3" loading="lazy">
+<img class="slide" src="deck/4.jpg" alt="Slide 4" loading="lazy">
+<img class="slide" src="deck/5.jpg" alt="Slide 5" loading="lazy">
+<img class="slide" src="deck/6.jpg" alt="Slide 6" loading="lazy">
+<img class="slide" src="deck/7.jpg" alt="Slide 7" loading="lazy">
+<a class="small" href="NightOfSuro-PitchDeck.pdf" download>Download PDF</a>
+</section>
+<section id="teaser">
+<video id="vid" controls playsinline preload="metadata" poster="deck/1.jpg">
+<source src="video/teaser.mp4" type="video/mp4">
+</video>
+<div id="soon" class="soon" style="display:none">Teaser segera hadir.</div>
+</section>
+<div><a class="small" href="https://store.steampowered.com/app/5039690/?utm_source=igdx2026&amp;utm_medium=deck" target="_blank" rel="noopener">Wishlist di Steam</a></div>
+<footer>© Bunnydog Studio</footer>
+<script>
+function show(id){for(const s of['deck','teaser']){document.getElementById(s).classList.toggle('on',s===id);document.getElementById('b-'+s).classList.toggle('on',s===id)}if(id!=='teaser')document.getElementById('vid').pause();scrollTo({top:document.querySelector('nav').offsetTop-10,behavior:'smooth'})}
+document.querySelector('#vid source').addEventListener('error',function(){document.getElementById('vid').style.display='none';document.getElementById('soon').style.display='block'});
+</script>
+</body></html>
